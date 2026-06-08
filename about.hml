@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cloud Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="about.html">About Us</a> | 
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <hr>
+
+    <h1>About Our Team</h1>
+    <h3>Course: Cloud Computing Practical Lab 1</h3>
+    <h2>Group Name: [GROUP]</h2>
+
+    <h3>Group Members & Roles:</h3>
+    <ul>
+        <li><strong>[Samuel Yaw Boateng]</strong> - GitHub Repository Manager</li>
+        <li><strong>[Member 2 Name]</strong> - Group Leader</li>
+        <li><strong>[Member 3 Name]</strong> - Design/Content</li>
+        <li><strong>[Member 4 Name]</strong> - Design/Content</li>
+    </ul>
+
+</body>
+</html>
