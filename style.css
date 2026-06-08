@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 0 10px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+nav {
+    padding: 10px 0;
+    font-size: 1.1rem;
+}
+
+nav a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: #111;
+}
+
+ul {
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
