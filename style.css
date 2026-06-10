@@ -1,35 +1,145 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 0 10px;
-    background-color: #f4f4f9;
-    color: #333;
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #f8fbff;
+}
+
+/* Navigation */
 nav {
-    padding: 10px 0;
+    background: linear-gradient(135deg, #0a2540, #1e3a8a);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
     font-size: 1.1rem;
 }
 
-nav a {
-    color: #0066cc;
+.nav-links a {
+    color: #e0f0ff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    margin: 0 12px;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+    color: #60a5fa;
 }
 
-h1, h2, h3 {
-    color: #111;
+.logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid #60a5fa;
+    object-fit: cover;
+}
+
+/* Home Hero (Simple) */
+.hero-simple {
+    position: relative;
+    height: 420px;
+    background: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.85)), 
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    opacity: 0.95;
+}
+
+/* Page Background for About & Contact */
+.page-bg {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(rgba(10, 37, 64, 0.68), rgba(10, 37, 64, 0.78)), 
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+}
+
+/* Main Content Box */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Typography */
+h3, h4 {
+    color: #1e40af;
+}
+
+h3 {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
 }
 
 ul {
-    background: #fff;
-    padding: 20px 40px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #f0f9ff;
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .content {
+        margin: 25px 15px;
+        padding: 30px 20px;
+    }
+    
+    .hero-simple {
+        height: 320px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        font-size: 1rem;
+    }
 }
