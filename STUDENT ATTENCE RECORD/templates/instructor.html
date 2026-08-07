@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        h2 { color: #333; }
+        .logout { float: right; background: #dc3545; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; margin-left: 10px; }
+        .export-btn { float: right; background: #28a745; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; }
+        form { margin-top: 20px; background: #f9f9f9; padding: 15px; border-radius: 6px; clear: both; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { margin-top: 15px; background: #007BFF; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        table { width: 100%; margin-top: 25px; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #007BFF; color: white; }
+        .delete-btn { background: #dc3545; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; margin: 0; }
+        .delete-btn:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/logout" class="logout">Logout</a>
+        <a href="/export_csv" class="export-btn">Export to CSV</a>
+        <h2>Instructor Dashboard</h2>
+        <p>Welcome, <strong>{{ name }}</strong> (Instructor)</p>
+
+        <form method="POST">
+            <h3>Mark Student Attendance</h3>
+            <label>Course Name:</label>
+            <select name="course" required>
+                {% for c in courses %}
+                    <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Date:</label>
+            <input type="date" name="date" required>
+
+            <label>Student Email:</label>
+            <select name="student_email" required>
+                {% for email, data in students.items() %}
+                    {% if data.role == 'student' %}
+                        <option value="{{ email }}">{{ data.name }} ({{ email }})</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            <label>Attendance Status:</label>
+            <select name="status">
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+                <option value="Late">Late</option>
+            </select>
+
+            <button type="submit">Submit Attendance</button>
+        </form>
+
+        <h3>All Attendance Records</h3>
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Date</th>
+                <th>Student Email</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for rec in records %}
+            <tr>
+                <td>{{ rec.course }}</td>
+                <td>{{ rec.date }}</td>
+                <td>{{ rec.student_email }}</td>
+                <td>{{ rec.status }}</td>
+                <td>
+                    <form action="/delete/{{ loop.index0 }}" method="POST" style="margin:0; padding:0; background:none;">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
